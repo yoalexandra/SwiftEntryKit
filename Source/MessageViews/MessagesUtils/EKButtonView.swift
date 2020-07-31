@@ -35,7 +35,7 @@ final class EKButtonView: UIView {
     private func setupAcceessibility() {
         isAccessibilityElement = true
         accessibilityIdentifier = content.accessibilityIdentifier
-        accessibilityLabel = content.label.text
+        accessibilityLabel = content.label.text.string
         accessibilityTraits = [.button]
     }
     
@@ -53,7 +53,7 @@ final class EKButtonView: UIView {
     private func setupTitleLabel() {
         titleLabel.numberOfLines = content.label.style.numberOfLines
         titleLabel.font = content.label.style.font
-        titleLabel.text = content.label.text
+        titleLabel.text = content.label.text.string
         titleLabel.textAlignment = .center
         titleLabel.lineBreakMode = .byWordWrapping
         addSubview(titleLabel)

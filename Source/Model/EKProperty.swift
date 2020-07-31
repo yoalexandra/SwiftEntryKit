@@ -70,7 +70,7 @@ public struct EKProperty {
     public struct LabelContent {
         
         /** The text */
-        public var text: String
+        public var text: NSAttributedString
         
         /** The label's style */
         public var style: LabelStyle
@@ -78,7 +78,7 @@ public struct EKProperty {
         /** The label's accessibility ideentifier */
         public var accessibilityIdentifier: String?
         
-        public init(text: String,
+        public init(text: NSAttributedString,
                     style: LabelStyle,
                     accessibilityIdentifier: String? = nil) {
             self.text = text

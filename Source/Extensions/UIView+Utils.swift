@@ -27,12 +27,12 @@ extension UILabel {
     
     var content: EKProperty.LabelContent {
         set {
-            text = newValue.text
+            attributedText = newValue.text
             accessibilityIdentifier = newValue.accessibilityIdentifier
             style = newValue.style
         }
         get {
-            return EKProperty.LabelContent(text: text ?? "", style: style)
+            return EKProperty.LabelContent(text: attributedText ?? NSAttributedString(string: ""), style: style)
         }
     }
 }
@@ -40,7 +40,7 @@ extension UILabel {
 extension UIButton {
     var buttonContent: EKProperty.ButtonContent {
         set {
-            setTitle(newValue.label.text, for: .normal)
+            setTitle(newValue.label.text.string, for: .normal)
             setTitleColor(newValue.label.style.color(for: traitCollection), for: .normal)
             titleLabel?.font = newValue.label.style.font
             backgroundColor = newValue.backgroundColor.color(
@@ -118,7 +118,7 @@ extension UITextField {
     var placeholder: EKProperty.LabelContent {
         set {
             attributedPlaceholder = NSAttributedString(
-                string: newValue.text,
+                string: newValue.text.string,
                 attributes: [
                     .font: newValue.style.font,
                     .foregroundColor: newValue.style.color(for: traitCollection)
